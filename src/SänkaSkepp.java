@@ -27,15 +27,13 @@ public class SänkaSkepp extends Canvas implements Runnable {
     // Skapa en buffrad grafik så att vi kan rita bilder i förväg, bättre än dbg från tidigare
     private BufferStrategy bs;
     // Storleken på bilden
-    private final int height = 600;
+    private final int height = 1000;
     private final int width = 800;
     // Variabler gör det lättare att placera saker
-    int x = 400;
-    int y = 300;
-    int vx = 1;
-    int vy = 1;
+    int firstHorizontalLine = 400;
+    int secondHorizontalLine = 600;
 
-    private BufferedImage spriteimg;
+
 
     /**
      * Skapa ett fönster och lägg in grafiken i det.
@@ -49,11 +47,8 @@ public class SänkaSkepp extends Canvas implements Runnable {
         frame.setVisible(true);
 
         // Börja med animationen avslagen
-        isRunning = false;
 
         // Lägg till en keylistener
-        this.addKeyListener(new KL());
-        this.addMouseListener(new ML());
         this.addMouseMotionListener(new MML());
         this.requestFocus();
         // Läs in en bild
